@@ -18,7 +18,6 @@ server.register(fastifyIO, {
 });
 
 
-
 server.ready().then(() => {
     server.io.on("connection", (socket: Socket) => {
         console.log('Client connected:', socket.id);

@@ -4,7 +4,7 @@ import { GameState } from '../types/gamestate';
 
 export function processDotaGSIData(data: GameState) {
     emitDraftData(data);
-    emitDotaGSISate(data);
+    emitDotaGSITimestamp(data);
 }
 
 export function emitDraftData(data: GameState) {
@@ -13,6 +13,6 @@ export function emitDraftData(data: GameState) {
     socketServer.io.emit('dota-draft', { ...draftData });
 }
 
-export function emitDotaGSISate(data: GameState) {
+export function emitDotaGSITimestamp(data: GameState) {
     socketServer.io.emit('dota-gsi-timestamp', { timestamp: data.provider.timestamp });
 }
