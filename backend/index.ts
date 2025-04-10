@@ -1,11 +1,17 @@
 import fastify from 'fastify'
 import path from 'path'
 import fastifyStatic from '@fastify/static'
+import cors from '@fastify/cors';
 import routes from './src/routes';
 import { startSocketServer } from './src/socket';
 
 
 const server = fastify()
+
+server.register(cors, {
+  origin: true,
+});
+
 server.register(routes);
 
 const start = async () => {
@@ -32,4 +38,3 @@ const start = async () => {
 }
 
 start()
-

@@ -2,6 +2,7 @@ import fastify, { FastifyInstance } from "fastify";
 import fastifyIO from "fastify-socket.io";
 import { Server, Socket } from "socket.io";
 
+
 declare module 'fastify' {
     interface FastifyInstance {
         io: Server;
