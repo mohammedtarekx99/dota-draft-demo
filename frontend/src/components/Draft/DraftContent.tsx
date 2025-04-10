@@ -24,11 +24,11 @@ export const DraftContent = () => {
                     <BansContainer isRightTeam team={draftData?.team3} banState={redBanState} />
                 </div>
                 <div className="flex flex-row justify-between">
-                    <Picks team={draftData?.team2} active={bluePickState.state}
+                    <Picks team={draftData?.team2}
                         pickState={bluePickState}
                     />
-                    <MiddleSection draftData={draftData} />
-                    <Picks isRightTeam team={draftData?.team3} active={redPickState.state}
+                    <MiddleSection />
+                    <Picks isRightTeam team={draftData?.team3}
                         pickState={redPickState}
                     />
                 </div>
