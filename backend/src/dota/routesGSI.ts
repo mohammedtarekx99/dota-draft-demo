@@ -1,11 +1,10 @@
 import { FastifyInstance, FastifyPluginAsync, FastifyRequest, FastifyReply } from 'fastify';
-import { emitDraftData } from './services';
+import { processDotaGSIData } from './services';
 
 const dotaGSIUri: FastifyPluginAsync = async (fastify: FastifyInstance) => {
     fastify.post('/', async (request: FastifyRequest, reply: FastifyReply) => {
-        console.log(request.body);
         try {
-            emitDraftData(request.body);
+            processDotaGSIData(request.body);
         } catch (error) {
             console.error(error);
         }
