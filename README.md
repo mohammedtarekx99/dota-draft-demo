@@ -12,7 +12,8 @@
 
 > ⚠️ **IMPORTANT**  
 > The backend listens for GSI input on **port 3000**.  
-> You **must set the draft config in your `cfg` file** to enable communication.
+> You need to set the draft config in your cfg file to receive draft updates.
+
 
 ---
 
@@ -54,4 +55,3 @@
 - [ ] Handle edge cases in the draft flow (e.g., timeouts, errors)
 - [ ] Integrate modeled Dota 2 assets for richer visuals
 - [ ] Add UI for team management and score tracking
-- [ ] Improve cross-platform support (Mac/Linux shell scripts)
