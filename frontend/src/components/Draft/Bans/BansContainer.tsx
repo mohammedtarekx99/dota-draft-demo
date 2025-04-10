@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { BanHeroImageBox } from './BanHeroImageBox';
 import { TeamDraft } from '@/types';
 import { BanState } from '@/state/draftState';
+import { getTeamBans } from '../context/useDraftLogic';
 
 interface BansProps {
     isRightTeam?: boolean;
@@ -10,20 +11,8 @@ interface BansProps {
 }
 
 export const BansContainer: React.FC<BansProps> = ({ team, isRightTeam = false, banState }) => {
-    const getBans = () => {
-        if (!team) return Array(7).fill('');
-        const bans = [];
-        for (let i = 0; i < 7; i++) {
-            const banKey = `ban${i}_class` as keyof TeamDraft;
-            const ban = team[banKey] as string;
-            bans.push(ban || '');
-        }
-        return bans;
-    };
 
-
-
-    const heroesToShow = getBans();
+    const heroesToShow = getTeamBans(team);
 
 
     return (

@@ -27,7 +27,7 @@ export const PickHeroVideoBox: React.FC<VideoBoxProps> = ({ heroName, active, is
                 <source src={videoUrl} type="video/webm" />
             </video>
 
-            {!heroName && activeTeamTimeRemaining !== undefined && active && (
+            {!heroName && activeTeamTimeRemaining !== undefined && active && activeTeamTimeRemaining !== 0 && (
                 <div className="absolute inset-0 flex items-center justify-center bg-red w-[159.5px] h-[200px]">
                     <span className="text-white text-2xl font-bold opacity-70">
                         {activeTeamTimeRemaining}

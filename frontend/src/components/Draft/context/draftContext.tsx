@@ -4,6 +4,7 @@ import { DraftData } from '@/types';
 import { useDraftLogic } from '@/components/Draft/context/useDraftLogic';
 import { useEffect } from 'react';
 import { BanState, PickState } from '@/state/draftState';
+
 type DraftContextType = {
     draftData: DraftData | null;
     activeTeamTimeRemaining: number;

@@ -1,22 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { TeamSide } from "./TeamSide";
 import { DraftData, TeamDraft } from "@/types";
+import { DraftContext } from "../context/draftContext";
 
 
-interface MiddleSectionProps {
-    draftData: DraftData | null;
-}
 
-export const MiddleSection: React.FC<MiddleSectionProps> = ({ draftData }) => {
+export const MiddleSection: React.FC = () => {
+    const { activeTeamTimeRemaining, draftData } = useContext(DraftContext);
+
+    const activeTeamRemainingIsZero = activeTeamTimeRemaining === 0;
+
     return (
-        <div className="flex flex-row items-center justify-between min-h-max 
+        <div className="flex flex-row items-center justify-around min-h-max 
         bg-gradient-to-r from-black to-[#484846]  shadow-md  w-[330px]
         ">
-            <TeamSide teamName="Team 1" timer={draftData?.radiant_bonus_time} />
-            <p className="text-white text-2xl font-bold px-7">
-                DOTA
-            </p>
-            <TeamSide teamName="Team 2" timer={draftData?.dire_bonus_time} />
+            <TeamSide teamName="Team 1" timer={draftData?.radiant_bonus_time} active={draftData?.activeteam === 2
+                && activeTeamRemainingIsZero
+            } />
+            <TeamSide teamName="Team 2" timer={draftData?.dire_bonus_time} active={draftData?.activeteam === 3
+                && activeTeamRemainingIsZero
+            } />
         </div>
     );
 };

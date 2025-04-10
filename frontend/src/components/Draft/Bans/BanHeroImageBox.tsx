@@ -20,14 +20,14 @@ export const BanHeroImageBox: React.FC<BanHeroImageBoxProps> = ({ heroName, acti
             style={{ '--glow-color': glowColor } as React.CSSProperties}>
             {heroName && (
                 <img
-                    className="w-full h-full object-cover opacity-50"
+                    className="w-full h-full object-cover opacity-30"
                     src={imageUrl}
                     alt={`Hero ${heroName}`}
                 />
             )}
             {!heroName && activeTeamTimeRemaining !== undefined && activeTeamTimeRemaining !== 0 && active && (
                 <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-white text-2xl font-bold opacity-70">
+                    <span className="text-white text-2xl font-bold opacity-50">
                         {activeTeamTimeRemaining}
                     </span>
                 </div>

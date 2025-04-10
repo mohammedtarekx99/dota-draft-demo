@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { downloadAll } from '../apis';
+import { downloadAll } from '../api';
 
 export const ActionItems: React.FC = () => {
     const [isDownloading, setIsDownloading] = useState(false);

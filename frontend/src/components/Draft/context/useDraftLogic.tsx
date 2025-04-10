@@ -58,3 +58,26 @@ const getFirstEmptyPick = (team: TeamDraft | undefined): number => {
     }
     return 0;
 };
+
+export const getTeamPicks = (team: TeamDraft | undefined) => {
+    if (!team) return Array(5).fill('');
+    const picks = [];
+    for (let i = 0; i < 5; i++) {
+        const pickKey = `pick${i}_class` as keyof TeamDraft;
+        const pick = team[pickKey] as string;
+        picks.push(pick || '');
+    }
+    return picks;
+};
+
+export const getTeamBans = (team: TeamDraft | undefined) => {
+    if (!team) return Array(7).fill('');
+    const bans = [];
+    for (let i = 0; i < 7; i++) {
+        const banKey = `ban${i}_class` as keyof TeamDraft;
+        const ban = team[banKey] as string;
+        bans.push(ban || '');
+    }
+    return bans;
+};
+
