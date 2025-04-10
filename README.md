@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://www.citypng.com/public/uploads/preview/hd-dota-2-official-logo-symbol-png-701751694788304xiqxbjto28.png" width="48" />
 </p>
-<h1 align="center">Dota 2 GSI Tool for Drafting</h1>
+<h1 align="center">Dota 2 GSI Tool for Draft</h1>
 
 ## ⚡ Quick Start
 
