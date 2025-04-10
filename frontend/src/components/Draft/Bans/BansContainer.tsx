@@ -11,8 +11,7 @@ interface BansProps {
 
 export const BansContainer: React.FC<BansProps> = ({ team, isRightTeam = false, banState }) => {
     const getBans = () => {
-        if (!team) return dummyBans;
-
+        if (!team) return Array(7).fill('');
         const bans = [];
         for (let i = 0; i < 7; i++) {
             const banKey = `ban${i}_class` as keyof TeamDraft;
@@ -22,17 +21,9 @@ export const BansContainer: React.FC<BansProps> = ({ team, isRightTeam = false, 
         return bans;
     };
 
-    const dummyBans = [
-        'axe',
-        'crystal_maiden',
-        'lina',
-        'pudge',
-        'alchemist',
-        'invoker',
-        'juggernaut',
-    ];
 
-    const heroesToShow = getBans() || dummyBans;
+
+    const heroesToShow = getBans();
 
 
     return (

@@ -10,7 +10,7 @@ interface MiddleSectionProps {
 export const MiddleSection: React.FC<MiddleSectionProps> = ({ draftData }) => {
     return (
         <div className="flex flex-row items-center justify-between min-h-max 
-        bg-gradient-to-r from-black to-[#484846]  shadow-md
+        bg-gradient-to-r from-black to-[#484846]  shadow-md  w-[330px]
         ">
             <TeamSide teamName="Team 1" timer={draftData?.radiant_bonus_time} />
             <p className="text-white text-2xl font-bold px-7">

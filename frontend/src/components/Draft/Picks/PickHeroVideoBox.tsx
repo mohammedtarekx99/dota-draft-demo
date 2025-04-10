@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DraftContext } from '../context/draftContext';
 
 interface VideoBoxProps {
     heroName: string;
-    activeTeamTimeRemaining?: number;
     active: boolean;
     isRightTeam?: boolean;
 }
 
-export const PickHeroVideoBox: React.FC<VideoBoxProps> = ({ heroName, activeTeamTimeRemaining, active, isRightTeam }) => {
+export const PickHeroVideoBox: React.FC<VideoBoxProps> = ({ heroName, active, isRightTeam }) => {
+
+    const { activeTeamTimeRemaining } = useContext(DraftContext);
     const videoUrl = `http://localhost:3000/public/animated_heroes/npc_dota_hero_${heroName}.webm`;
     const glowColor = isRightTeam ? 'rgba(239, 68, 68, 1)' : 'rgba(34, 197, 94, 1)';
 

@@ -2,7 +2,6 @@ import { server as socketServer } from '../socket';
 import { GameState } from '../types/gamestate';
 
 
-
 export function processDotaGSIData(data: GameState) {
     emitDraftData(data);
     emitDotaGSISate(data);
