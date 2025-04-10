@@ -20,7 +20,7 @@ export const BanHeroImageBox: React.FC<BanHeroImageBoxProps> = ({ heroName, acti
             style={{ '--glow-color': glowColor } as React.CSSProperties}>
             {heroName && (
                 <img
-                    className="w-full h-full object-cover opacity-30"
+                    className="w-full h-full object-cover opacity-60"
                     src={imageUrl}
                     alt={`Hero ${heroName}`}
                 />
