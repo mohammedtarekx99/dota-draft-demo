@@ -1,6 +1,5 @@
-<p align="center">
-  <img src="https://www.citypng.com/public/uploads/preview/hd-dota-2-official-logo-symbol-png-701751694788304xiqxbjto28.png" width="48" />
-</p>
+  ![image](https://github.com/user-attachments/assets/5a20407b-3053-4e18-bb5a-0c623ea7afa3)
+
 <h1 align="center">Dota 2 GSI Tool for Draft</h1>
 
 ## ⚡ Quick Start
@@ -25,6 +24,12 @@
 2. Run `start_draft_backend.bat`  
    Starts the backend server on port `3000`.
 
+**If you can't run .bat files:**
+
+- Open a command prompt in the backend directory.
+- Run `npm install` to install all dependencies.
+- Run `npm run dev` to start the backend server.
+
 ---
 
 ## 🎨 Frontend Setup & Run
@@ -35,6 +40,12 @@
 2. Run `start_draft_frontend.bat`  
    Starts the frontend development server (e.g., Vite).
 
+**If you can't run .bat files:**
+
+- Open a command prompt in the frontend directory.
+- Run `npm install` to install all dependencies.
+- Run `npm run dev` to start the frontend development server.
+
 ---
 
 ## 🧭 Next Goals
@@ -44,4 +55,3 @@
 - [ ] Integrate modeled Dota 2 assets for richer visuals
 - [ ] Add UI for team management and score tracking
 - [ ] Improve cross-platform support (Mac/Linux shell scripts)
-
