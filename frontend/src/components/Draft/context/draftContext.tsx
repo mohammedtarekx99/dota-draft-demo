@@ -21,11 +21,11 @@ export const DraftContext = createContext({
         state: false,
         onPick: 0,
     },
-
+    dotaGSITimestamp: 0,
 });
 
 export const DraftProvider = ({ children }: { children: React.ReactNode }) => {
-    const [isConnected, setIsConnected] = useState(false);
+    const [dotaGSITimestamp, setDotaGSITimestamp] = useState<number>(0);
     const [draftData, setDraftData] = useState<DraftData | null>(null);
 
     const [isBlueBanActive, setIsBlueBanActive] = useState({
@@ -49,7 +49,6 @@ export const DraftProvider = ({ children }: { children: React.ReactNode }) => {
 
 
     function logicForBlueBanActive() {
-        console.log(draftData?.team2, 'draftData?.team2');
         const state = draftData?.activeteam == 2 && !draftData?.pick
         const onBan = getFirstEmptyBan(draftData?.team2)
         setIsBlueBanActive({ state, onBan });
@@ -58,7 +57,6 @@ export const DraftProvider = ({ children }: { children: React.ReactNode }) => {
     function logicForRedBanActive() {
         const state = draftData?.activeteam == 3 && !draftData?.pick
         const onBan = getFirstEmptyBan(draftData?.team3)
-        console.log(state, 'state Red');
         setIsRedBanActive({ state, onBan });
     }
 
@@ -96,42 +94,28 @@ export const DraftProvider = ({ children }: { children: React.ReactNode }) => {
         return 0
     }
 
-    const getBans = (team: TeamDraft | undefined) => {
-        if (!team) return [];
+    // const getBans = (team: TeamDraft | undefined) => {
+    //     if (!team) return [];
 
-        const bans = [];
-        for (let i = 0; i < 7; i++) {
-            const banKey = `ban${i}_class` as keyof TeamDraft;
-            const ban = team[banKey] as string;
-            bans.push(ban || '');
-        }
-        return bans;
-    };
+    //     const bans = [];
+    //     for (let i = 0; i < 7; i++) {
+    //         const banKey = `ban${i}_class` as keyof TeamDraft;
+    //         const ban = team[banKey] as string;
+    //         bans.push(ban || '');
+    //     }
+    //     return bans;
+    // };
 
 
 
     useEffect(() => {
-        socket.on('connect', () => {
-            setIsConnected(true);
-            console.log('Connected to server');
-        });
-
-        socket.on('disconnect', () => {
-            setIsConnected(false);
-            console.log('Disconnected from server');
-        });
-
         socket.on('dota-draft', (data: DraftData) => {
             console.log(data, 'data');
             setDraftData(data);
-
-
         });
+
         return () => {
-            socket.off('connect');
-            socket.off('disconnect');
             socket.off('dota-draft');
-            socket.off('controller');
         };
     }, []);
 
@@ -144,5 +128,5 @@ export const DraftProvider = ({ children }: { children: React.ReactNode }) => {
         logicForRedPickActive();
     }, [draftData]);
 
-    return <DraftContext.Provider value={{ draftData, activeTeamTimeRemaining, isBlueBanActive, isRedBanActive, isBluePickActive, isRedPickActive }}>{children}</DraftContext.Provider>;
+    return <DraftContext.Provider value={{ draftData, activeTeamTimeRemaining, isBlueBanActive, isRedBanActive, isBluePickActive, isRedPickActive, dotaGSITimestamp }}>{children}</DraftContext.Provider>;
 };
